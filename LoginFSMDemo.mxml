@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PureMVC Flex StateMachine 1.1 Demo - LoginFSMDemo
+  Copyright (c) 2009 Greg Jastrab <greg@smartlogicsolutions.com>
+  Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+                xmlns:components="org.puremvc.as3.demos.flex.loginfsm.view.components.*"
+                creationComplete="facade.startup(this)">
+
+	<mx:Script>
+		<![CDATA[
+			import org.puremvc.as3.demos.flex.loginfsm.LoginFSMFacade;
+
+			private var facade:LoginFSMFacade = LoginFSMFacade.getInstance();
+		]]>
+	</mx:Script>
+	
+	<components:LoginPanel id="loginPnl" title="Login FSM Demo" />
+
+</mx:Application>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PureMVC Flex StateMachine 1.1 Demo - LoginFSMDemo
+  Copyright (c) 2009 Greg Jastrab <greg@smartlogicsolutions.com>
+  Your reuse is governed by the Creative Commons Attribution 3.0 License
+-->
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+	<mx:Metadata>
+		[Event(name="login", type="org.puremvc.as3.demos.flex.loginfsm.view.events.LoginEvent")]
+		[Event(name="logout", type="org.puremvc.as3.demos.flex.loginfsm.view.events.LoginEvent")]
+	</mx:Metadata>
+
+	<mx:Script>
+		<![CDATA[
+			import org.puremvc.as3.demos.flex.loginfsm.LoginFSMFacade;
+			import org.puremvc.as3.demos.flex.loginfsm.view.events.LoginEvent;
+			
+			[Bindable] public var user:String = "";
+		]]>
+	</mx:Script>
+	
+	<mx:states>
+		<mx:State name="{LoginFSMFacade.STATE_LOGGED_IN}">
+			<mx:RemoveChild target="{loginFrm}" />
+			<mx:RemoveChild target="{loginBtn}" />
+			<mx:AddChild>
+				<mx:Label id="loginLbl" text="Welcome {user}!" />
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{ctrlBar}">
+				<mx:Button id="logoutBtn" label="Logout"
+						   click="dispatchEvent( new LoginEvent(LoginEvent.LOGOUT) )" />
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	
+	<mx:Form id="loginFrm" defaultButton="{loginBtn}">
+		
+		<mx:FormItem label="Username">
+			<mx:TextInput id="username" />
+		</mx:FormItem>
+		
+		<mx:FormItem label="Password">
+			<mx:TextInput id="password" displayAsPassword="true" />
+		</mx:FormItem>
+		
+		<mx:FormItem>
+			
+		</mx:FormItem>
+		
+	</mx:Form>
+	
+	<mx:ControlBar id="ctrlBar">
+		<mx:Button id="loginBtn" label="Login"
+					   click="dispatchEvent( new LoginEvent(LoginEvent.LOGIN, username.text, password.text) )" />
+	</mx:ControlBar>
+	
+</mx:Panel>
