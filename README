@@ -1,0 +1,19 @@
+= LoginFSMDemo
+
+ * http://github.com/gjastrab/puremvc-statemachine-1.1-login-demo/tree/master
+
+== DESCRIPTION:
+
+A Demo utilizing the new features in the 1.1 release of the PureMVC StateMachine utility.
+ http://trac.puremvc.org/Utility_AS3_StateMachine/wiki/ReleaseNotes
+
+== INSTALL
+
+This includes the source only for a Flex project.  If you want to run this demo:
+
+ 1) Start a new Flex Builder project
+ 2) On a command line terminal, cd into project
+ 3) Delete the src directory
+ 4) Enter:
+   git clone git://github.com/gjastrab/puremvc-statemachine-1.1-login-demo.git src
+ 5) Back in Flex Builder, refresh the project, and add the PureMVC Standard and StateMachine 1.1 SWCs into the library build path
